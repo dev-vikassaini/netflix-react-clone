@@ -1,24 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import Navbar from "./components/Navbar";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home";
+import Login from "./pages/Login";
+import Profile from "./pages/Profile";
+import Signup from "./pages/Signup";
+import ProtectedRoute from "./components/ProtectedRoute";
+import { AuthContextProvider } from "./context/AuthContext";
+import { DEFAULT_ROUTES } from "./configuration/Route.Configuration";
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <React.Fragment>
+      <AuthContextProvider>
+        <Navbar />
+        <Routes>
+          <Route path={DEFAULT_ROUTES.HOME} element={<Home />}></Route>
+          <Route path={DEFAULT_ROUTES.SIGN_IN} element={<Login />}></Route>
+          <Route path={DEFAULT_ROUTES.SIGN_UP} element={<Signup />}></Route>
+          <Route path={DEFAULT_ROUTES.PROFILE} element={
+            <ProtectedRoute>  <Profile /></ProtectedRoute>
+          }></Route>
+        </Routes>
+      </AuthContextProvider>
+    </React.Fragment>
   );
 }
 
