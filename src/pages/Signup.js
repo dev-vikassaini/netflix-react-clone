@@ -14,7 +14,7 @@ function Signup() {
         e.preventDefault();
         try {
             await signUp(email, password);
-            navigate(DEFAULT_ROUTES.HOME);
+            navigate(DEFAULT_ROUTES.DASHBOARD);
         } catch (error) {
             setError(error.message);
         }

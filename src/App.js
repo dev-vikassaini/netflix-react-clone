@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "./components/Navbar";
 import { Routes, Route } from "react-router-dom";
+import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
@@ -18,6 +19,7 @@ function App() {
           <Route path={DEFAULT_ROUTES.HOME} element={<Home />}></Route>
           <Route path={DEFAULT_ROUTES.SIGN_IN} element={<Login />}></Route>
           <Route path={DEFAULT_ROUTES.SIGN_UP} element={<Signup />}></Route>
+          <Route path={DEFAULT_ROUTES.DASHBOARD} element={<ProtectedRoute><Dashboard /></ProtectedRoute>}></Route>
           <Route path={DEFAULT_ROUTES.PROFILE} element={
             <ProtectedRoute>  <Profile /></ProtectedRoute>
           }></Route>
