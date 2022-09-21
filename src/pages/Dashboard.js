@@ -2,7 +2,7 @@ import React from 'react'
 import Main from '../components/Main';
 import Row from '../components/Row';
 import requests from '../Requests';
-
+import Footer from '../components/Footer';
 function Dashboard() {
   return (
     <div>
@@ -12,6 +12,7 @@ function Dashboard() {
       <Row rowNumber = "3" title="Trending" fetchURL={requests.requestTrending} />
       <Row rowNumber = "4" title="Top Rated" fetchURL={requests.requestTopRated} />
       <Row rowNumber = "5" title="Horror" fetchURL={requests.requestHorror} />
+      <Footer />
     </div>
   )
 }

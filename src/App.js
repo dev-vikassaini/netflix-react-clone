@@ -9,6 +9,7 @@ import Signup from "./pages/Signup";
 import ProtectedRoute from "./components/ProtectedRoute";
 import { AuthContextProvider } from "./context/AuthContext";
 import { DEFAULT_ROUTES } from "./configuration/Route.Configuration";
+import Footer from "./components/Footer";
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
             <ProtectedRoute>  <Profile /></ProtectedRoute>
           }></Route>
         </Routes>
+        
       </AuthContextProvider>
     </React.Fragment>
   );
